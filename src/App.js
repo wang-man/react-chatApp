@@ -2,6 +2,12 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {addGun, reduceGun, reduceGunAsync} from './index.redux'
 
+
+@connect(
+  state => {return {num: state}},         // state的什么属性放入props中？
+  {addGun, reduceGun, reduceGunAsync}     // 什么方法放入props中
+)
+
 class App extends React.Component{
   render(){
     const num = this.props.num
@@ -19,11 +25,5 @@ class App extends React.Component{
   }
 }
 
-const mapStateToProps = state=>{
-  return {num: state}     // 将状态给到num变量
-}
-const actionCreators = {addGun, reduceGun, reduceGunAsync}
-// 将state、addGun、reduceGun、reduceGunAsync也塞进props中，这样就可以使用this.props使用
-App = connect(mapStateToProps, actionCreators)(App)
 
 export default App
