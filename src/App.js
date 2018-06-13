@@ -4,7 +4,7 @@ import {addGun, reduceGun, reduceGunAsync} from './index.redux'
 
 
 @connect(
-  state => {return {num: state}},         // state的什么属性放入props中？
+  state => {return {num: state.counter}},         // state的什么属性放入props中？
   {addGun, reduceGun, reduceGunAsync}     // 什么方法放入props中
 )
 
