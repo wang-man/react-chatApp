@@ -1,3 +1,4 @@
+// Auth组件的状态
 const LOGIN = 'LOGIN'
 const LOGOUT = 'LOGOUT'
 

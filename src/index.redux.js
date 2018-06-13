@@ -1,3 +1,4 @@
+// index组件的状态
 const ADD_GUN = 'add'
 const RED_GUN = 'reduce'
 

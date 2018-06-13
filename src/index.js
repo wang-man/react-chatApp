@@ -25,7 +25,8 @@ ReactDom.render(
 			<Switch>
 				<Route path='/login' exact component={Auth}></Route>
 				<Route path='/dashboard' component={Dashboard}></Route>
-				<Redirect to='/dashboard'></Redirect>
+				<Redirect to='/dashboard'></Redirect>{/*未指定路由则定向到dashboard*/}
+			
 			</Switch>
 		</BrowserRouter>
 	</Provider>),
