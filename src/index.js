@@ -12,10 +12,12 @@ import Dashboard from './Dashboard'
 // import {counter} from './index.redux'
 import reducers from './reducers'
 
+// 使用了Chrome的状态UI工具，在其他浏览器中会报错
 const reduxDevtools = window.devToolsExtension ? window.devToolsExtension() : () =>{}
+// console.log(reduxDevtools)
 
 // 创建store,注意用createStore
-const store = createStore(reducers, compose(applyMiddleware(thunk), reduxDevtools)) 
+const store = window.devToolsExtension ? createStore(reducers, compose(applyMiddleware(thunk), reduxDevtools)) : createStore(reducers, compose(applyMiddleware(thunk))) 
 
 console.log(store.getState())
 
