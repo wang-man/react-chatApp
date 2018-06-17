@@ -14,16 +14,16 @@ const User = mongoose.model('user', new mongoose.Schema({
 	age: {type: Number, require: true}
 }))
 // 新增数据
-// User.create({
-// 	name: '穆念慈',
-// 	age: 19
-// }, function (err, doc) {
-// 	if (!err) {
-// 		console.log(doc);
-// 	}else{
-// 		console.log(err);
-// 	}
-// })
+User.create({
+	name: '郭靖',
+	age: 20
+}, function (err, doc) {
+	if (!err) {
+		console.log(doc);
+	}else{
+		console.log(err);
+	}
+})
 
 // User.remove({age: 24}, function (err, doc) {
 // 	console.log(doc)
@@ -44,7 +44,7 @@ app.get('/', function(req, res) {
 });
 // 返回json，相当于定义数据接口
 app.get('/data', function(req, res) {
-	User.findOne({name: 'lion'}, function (err, doc) {
+	User.find({name: '穆念慈'}, function (err, doc) {
 		res.json(doc)
 	})
 	// res.json({name: 'lion wang', age: 20})

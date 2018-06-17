@@ -8,18 +8,21 @@ import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 import Auth from './Auth'
 import Dashboard from './Dashboard'
 
+import './config'
+import 'antd-mobile/dist/antd-mobile.css'		// 引入css
+
 // import App from './App'
 // import {counter} from './index.redux'
 import reducers from './reducers'
 
-// 使用了Chrome的状态UI工具，在其他浏览器中会报错
+// 使用了Chrome的状态UI工具，在其他浏览器中不能使用
 const reduxDevtools = window.devToolsExtension ? window.devToolsExtension() : () =>{}
 // console.log(reduxDevtools)
 
 // 创建store,注意用createStore
 const store = window.devToolsExtension ? createStore(reducers, compose(applyMiddleware(thunk), reduxDevtools)) : createStore(reducers, compose(applyMiddleware(thunk))) 
 
-console.log(store.getState())
+// console.log(store.getState())
 
 ReactDom.render(
 	(<Provider store={store}>
