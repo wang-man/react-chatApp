@@ -3,13 +3,15 @@ import ReactDom from 'react-dom'
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import {Provider} from 'react-redux'
-import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
+import {BrowserRouter, Route} from 'react-router-dom'
 
-import Auth from './Auth'
-import Dashboard from './Dashboard'
+import Login from './container/login/login'
+import Regist from './container/regist/regist'
+import AuthRoute from './components/authroute/authroute'
 
 import './config'
-import 'antd-mobile/dist/antd-mobile.css'		// 引入css
+import './index.css'
+// import 'antd-mobile/dist/antd-mobile.css'		// 引入css
 
 // import App from './App'
 // import {counter} from './index.redux'
@@ -24,15 +26,21 @@ const store = window.devToolsExtension ? createStore(reducers, compose(applyMidd
 
 // console.log(store.getState())
 
+function Success () {
+	return <h2>测试登录完成过</h2>
+}
+
+
 ReactDom.render(
 	(<Provider store={store}>
 		<BrowserRouter>
-			<Switch>
-				<Route path='/login' exact component={Auth}></Route>
-				<Route path='/dashboard' component={Dashboard}></Route>
-				<Redirect to='/dashboard'></Redirect>{/*未指定路由则定向到dashboard*/}
-			
-			</Switch>
+			<div>
+				<AuthRoute></AuthRoute>
+				<Route path='/success' component={Success}></Route>
+				<Route path='/login' component={Login}></Route>
+				<Route path='/regist' component={Regist}></Route>
+				{/*<Redirect to='login'></Redirect>*/}
+			</div>
 		</BrowserRouter>
 	</Provider>),
 	document.getElementById('root')

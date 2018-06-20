@@ -9,6 +9,7 @@
     "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
     "babel-loader": "7.1.2",
+    "babel-plugin-import": "^1.8.0",
     "babel-preset-react-app": "^3.1.1",
     "babel-runtime": "6.26.0",
     "case-sensitive-paths-webpack-plugin": "2.1.1",
@@ -81,7 +82,7 @@
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
     },
-    "moduleFileExtensions": [
+   "moduleFileExtensions": [
       "web.js",
       "js",
       "json",
@@ -89,13 +90,20 @@
       "jsx",
       "node",
       "mjs"
-    ]
+   ]
   },
   "babel": {
     "presets": [
-      "react-app"
+       "react-app"
     ],
     "plugins": [
+      [
+         "import",
+         {
+            "libraryName": "antd-mobile",
+            "style": "css"
+         }
+      ],
       "transform-decorators-legacy"
     ]
   },
